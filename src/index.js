@@ -10,11 +10,11 @@ const HTML = `<!DOCTYPE html>
 <style>
   :root {
     --bg: #f6f5f1; --card: #ffffff; --ink: #1b1b1b; --muted: #8a877f; --line: #e7e4dc;
-    --yes: #1f9d55; --yes-bg: #e3f5ea; --no: #c2412d; --no-bg: #fbe7e3; --today: #2563eb;
+    --yes: #1f9d55; --yes-bg: #e3f5ea; --no: #c2412d; --no-bg: #fbe7e3; --today: #1b1b1b;
   }
   @media (prefers-color-scheme: dark) {
     :root { --bg:#141414; --card:#1e1e1e; --ink:#f2f2f2; --muted:#8d8d8d; --line:#2c2c2c;
-      --yes:#4ade80; --yes-bg:#173322; --no:#f87171; --no-bg:#3a1c1a; --today:#60a5fa; }
+      --yes:#4ade80; --yes-bg:#173322; --no:#f87171; --no-bg:#3a1c1a; --today:#f2f2f2; }
   }
   * { box-sizing: border-box; }
   body { margin:0; background:var(--bg); color:var(--ink); font-family:Inter,system-ui,sans-serif;
