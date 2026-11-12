@@ -1,0 +1,7 @@
+name = "gym-week"
+main = "src/index.js"
+compatibility_date = "2026-11-12"
+
+[[kv_namespaces]]
+binding = "GYM"
+id = "a972052e472c4c99acbe847bd065a0b3"   # npx wrangler kv namespace list  → id of "gym-week"
