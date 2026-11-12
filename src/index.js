@@ -24,7 +24,7 @@ const HTML = `<!DOCTYPE html>
   h1 { font-size: 22px; font-weight: 800; margin: 0; letter-spacing: -0.02em; }
   .range { color: var(--muted); font-size: 14px; }
   .cols { display:grid; grid-template-columns: 74px 1fr 1fr; gap:8px; padding: 0 10px 6px;
-    font-size:12px; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
+    font-size:20px; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
   .cols span:not(:first-child) { text-align:center; }
   .day { display:grid; grid-template-columns: 74px 1fr 1fr; gap:8px; align-items:center;
     background:var(--card); border:1px solid var(--line); border-radius:14px; padding:10px; margin-bottom:8px; }
@@ -112,7 +112,7 @@ function render() {
     const row = document.createElement("div");
     row.className = "day" + (day === today ? " today" : day < today ? " past" : "");
     const both = PEOPLE.every(p => values[\`\${day}_\${p}\`] === "yes");
-    row.innerHTML = \`<div class="label"><b>\${DAY_NAMES[i]}</b><small>\${d.getDate()}</small>\${both ? '<div class="car">🚗 ' + (day < today ? "went" : "going") + '</div>' : ""}</div>\`;
+    row.innerHTML = \`<div class="label"><b>\${DAY_NAMES[i]}</b><small>\${d.getDate()}</small>\${both ? '<div class="car">' + (day < today ? "💪" : "🚗 going") + '</div>' : ""}</div>\`;
     PEOPLE.forEach(p => {
       const key = \`\${day}_\${p}\`, v = values[key];
       const slot = document.createElement("div");
