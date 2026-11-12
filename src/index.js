@@ -112,7 +112,7 @@ function render() {
     const row = document.createElement("div");
     row.className = "day" + (day === today ? " today" : day < today ? " past" : "");
     const both = PEOPLE.every(p => values[\`\${day}_\${p}\`] === "yes");
-    row.innerHTML = \`<div class="label"><b>\${DAY_NAMES[i]}</b><small>\${d.getDate()}</small>\${both ? '<div class="car">🚗 going</div>' : ""}</div>\`;
+    row.innerHTML = \`<div class="label"><b>\${DAY_NAMES[i]}</b><small>\${d.getDate()}</small>\${both ? '<div class="car">🚗 ' + (day < today ? "went" : "going") + '</div>' : ""}</div>\`;
     PEOPLE.forEach(p => {
       const key = \`\${day}_\${p}\`, v = values[key];
       const slot = document.createElement("div");
