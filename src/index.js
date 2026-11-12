@@ -10,11 +10,11 @@ const HTML = `<!DOCTYPE html>
 <style>
   :root {
     --bg: #f6f5f1; --card: #ffffff; --ink: #1b1b1b; --muted: #8a877f; --line: #e7e4dc;
-    --yes: #1f9d55; --yes-bg: #e3f5ea; --no: #c2412d; --no-bg: #fbe7e3; --today: #1b1b1b;
+    --yes: #1f9d55; --yes-bg: #e3f5ea; --no: #c2412d; --no-bg: #fbe7e3; --today: #2563eb;
   }
   @media (prefers-color-scheme: dark) {
     :root { --bg:#141414; --card:#1e1e1e; --ink:#f2f2f2; --muted:#8d8d8d; --line:#2c2c2c;
-      --yes:#4ade80; --yes-bg:#173322; --no:#f87171; --no-bg:#3a1c1a; --today:#f2f2f2; }
+      --yes:#4ade80; --yes-bg:#173322; --no:#f87171; --no-bg:#3a1c1a; --today:#60a5fa; }
   }
   * { box-sizing: border-box; }
   body { margin:0; background:var(--bg); color:var(--ink); font-family:Inter,system-ui,sans-serif;
@@ -28,7 +28,8 @@ const HTML = `<!DOCTYPE html>
   .cols span:not(:first-child) { text-align:center; }
   .day { display:grid; grid-template-columns: 74px 1fr 1fr; gap:8px; align-items:center;
     background:var(--card); border:1px solid var(--line); border-radius:14px; padding:10px; margin-bottom:8px; }
-  .day.today { border:2px solid var(--today); padding:9px; }
+  .day.today { border:2px solid var(--today); padding:9px; box-shadow:0 0 0 3px color-mix(in srgb, var(--today) 25%, transparent); }
+  .label .now { display:block; font-size:10px; font-weight:800; letter-spacing:.08em; color:var(--today); }
   .day.past { opacity:.5; }
   .label b { display:block; font-size:16px; }
   .label small { color:var(--muted); font-size:12px; }
@@ -112,7 +113,7 @@ function render() {
     const row = document.createElement("div");
     row.className = "day" + (day === today ? " today" : day < today ? " past" : "");
     const both = PEOPLE.every(p => values[\`\${day}_\${p}\`] === "yes");
-    row.innerHTML = \`<div class="label"><b>\${DAY_NAMES[i]}</b><small>\${d.getDate()}</small>\${both ? '<div class="car">' + (day < today ? "💪" : "🚗 going") + '</div>' : ""}</div>\`;
+    row.innerHTML = \`<div class="label">\${day === today ? '<span class="now">TODAY</span>' : ''}<b>\${DAY_NAMES[i]}</b><small>\${d.getDate()}</small>\${both ? '<div class="car">' + (day < today ? "💪" : "🚗 going") + '</div>' : ""}</div>\`;
     PEOPLE.forEach(p => {
       const key = \`\${day}_\${p}\`, v = values[key];
       const slot = document.createElement("div");
