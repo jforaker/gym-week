@@ -1,7 +1,11 @@
 name = "gym-week"
-main = "src/index.js"
+main = "dist/index.js"
 compatibility_date = "2026-11-12"
 preview_urls = false
+
+[build]
+command = "node build.mjs"
+watch_dir = "src"
 
 [[kv_namespaces]]
 binding = "GYM"
