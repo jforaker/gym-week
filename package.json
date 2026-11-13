@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "helper": "bash scripts/helper.sh",
     "build": "node build.mjs",
     "dev": "wrangler dev",
     "deploy": "wrangler deploy"
